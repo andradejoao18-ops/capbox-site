@@ -333,12 +333,16 @@
     .sec-head{margin-bottom:32px}
     .hero{min-height:auto}
     .hero-inner .wrap{padding-top:116px;padding-bottom:36px}
-    /* Produto: mais compacto, stats 2x2 */
-    #produto{min-height:640px;padding:52px 0 40px}
-    .prod-bg{transform:scale(1.06) rotate(-2deg)}
+    /* Produto: empilhado com respiro (título > imagem > cards), sem sobreposição */
+    #produto{min-height:auto;padding:56px 0 48px;display:flex;flex-direction:column;justify-content:flex-start}
+    .prod-top{order:0;position:relative;z-index:2}
     .prod-top h2{font-size:1.9rem}
-    .prod-cols{grid-template-columns:repeat(2,1fr);gap:26px 12px}
-    .pcol small{max-width:150px}
+    .prod-bg{order:1;position:static;inset:auto;width:100%;height:auto;aspect-ratio:1900/1098;object-fit:cover;
+      transform:none;border-radius:16px;border:1px solid var(--line);margin:30px 0 6px;opacity:1}
+    .prod-shade{display:none}
+    .prodcols-wrap{order:2;margin-top:16px}
+    .prod-cols{grid-template-columns:repeat(2,1fr);gap:28px 12px}
+    .pcol small{max-width:160px}
     /* Bento */
     #tecnologia{padding:58px 0}
     .bento-inner{height:240px}
@@ -545,7 +549,7 @@
         <p>Tecnologia, saúde e lucro no mesmo equipamento</p>
       </div>
     </div>
-    <div class="wrap" style="position:relative;z-index:2">
+    <div class="wrap prodcols-wrap" style="position:relative;z-index:2">
       <div class="prod-cols">
         <div class="pcol"><span class="num">8min</span><h4>Rápido</h4><small>Capacete pronto pra uso, sem esperar horas para secar.</small></div>
         <div class="pcol"><span class="num">300</span><h4>Sustentável</h4><small>Mais de 300 capacetes com apenas 5L, sem uso de água.</small></div>
