@@ -333,15 +333,14 @@
     .sec-head{margin-bottom:32px}
     .hero{min-height:auto}
     .hero-inner .wrap{padding-top:116px;padding-bottom:36px}
-    /* Produto: empilhado com respiro (título > imagem > cards), sem sobreposição */
-    #produto{min-height:auto;padding:56px 0 48px;display:flex;flex-direction:column;justify-content:flex-start}
-    .prod-top{order:0;position:relative;z-index:2}
+    /* Produto: MESMA lógica do desktop — imagem full-bleed inclinada e sangrando.
+       Seção alta + gradiente mais forte no topo/base para o título subir e as colunas descerem sobre o escuro. */
+    #produto{min-height:880px;padding:44px 0 40px;justify-content:space-between}
     .prod-top h2{font-size:1.9rem}
-    .prod-bg{order:1;position:static;inset:auto;width:100%;height:clamp(430px,64vh,580px);object-fit:cover;object-position:center;
-      transform:none;border:0;border-radius:0;margin:28px 0;opacity:1}
-    .prod-shade{display:none}
-    .prodcols-wrap{order:2;margin-top:16px}
-    .prod-cols{grid-template-columns:repeat(2,1fr);gap:28px 12px}
+    .prod-shade{background:
+      linear-gradient(to bottom, var(--bg) 0%, rgba(3,16,13,.5) 20%, rgba(3,16,13,0) 42%),
+      linear-gradient(to top, var(--bg) 0%, rgba(3,16,13,.58) 24%, rgba(3,16,13,0) 48%)}
+    .prod-cols{grid-template-columns:repeat(2,1fr);gap:26px 12px}
     .pcol small{max-width:160px}
     /* Bento */
     #tecnologia{padding:58px 0}
