@@ -333,14 +333,18 @@
     .sec-head{margin-bottom:32px}
     .hero{min-height:auto}
     .hero-inner .wrap{padding-top:116px;padding-bottom:36px}
-    /* Produto: MESMA lógica do desktop — imagem full-bleed inclinada e sangrando.
-       Seção alta + gradiente mais forte no topo/base para o título subir e as colunas descerem sobre o escuro. */
-    #produto{min-height:880px;padding:44px 0 40px;justify-content:space-between}
+    /* Produto (mobile): empilhado — head > imagem full-width que se dissolve no escuro > colunas 2x2.
+       Sem moldura/borda: a imagem sangra na largura total e as pontas somem via máscara em gradiente. */
+    #produto{min-height:auto;padding:56px 0 46px;display:flex;flex-direction:column;justify-content:flex-start}
+    .prod-top{order:0;position:relative;z-index:2}
     .prod-top h2{font-size:1.9rem}
-    .prod-shade{background:
-      linear-gradient(to bottom, var(--bg) 0%, rgba(3,16,13,.5) 20%, rgba(3,16,13,0) 42%),
-      linear-gradient(to top, var(--bg) 0%, rgba(3,16,13,.58) 24%, rgba(3,16,13,0) 48%)}
-    .prod-cols{grid-template-columns:repeat(2,1fr);gap:26px 12px}
+    .prod-bg{order:1;position:static;inset:auto;width:100%;height:clamp(450px,62vh,560px);object-fit:cover;object-position:center;
+      transform:none;border:0;border-radius:0;opacity:1;margin:22px 0 12px;
+      -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 80%,transparent 100%);
+      mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 80%,transparent 100%)}
+    .prod-shade{display:none}
+    .prodcols-wrap{order:2;margin-top:8px}
+    .prod-cols{grid-template-columns:repeat(2,1fr);gap:28px 14px}
     .pcol small{max-width:160px}
     /* Bento */
     #tecnologia{padding:58px 0}
